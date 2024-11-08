@@ -34,13 +34,6 @@ namespace Pages {
 	void PageLoading() {
 		auto& window = MainWindow::Instance();
 		auto& io = ImGui::GetIO();
-		//auto& img = ImageLoader::Instance();
-
-		static float logo_rotation = 0.f;
-		static int rotation_direction = 1;
-		static std::vector<float> rotation_history;
-		const int history_size = 1000;
-		static float normalizedTime = 0;
 
 		auto current_time = std::chrono::steady_clock::now();
 		auto elapsed_time = std::chrono::duration_cast<std::chrono::milliseconds>(current_time - start_time).count();
@@ -53,7 +46,9 @@ namespace Pages {
 		ImGui::PopStyleColor();
 		ImGui::PopStyleColor();
 
-		//ImGui::PopFont();
+		if (elapsed_time == 2000) {
+			window.CurrentPage = PageIndex::PageMain;
+		}
 	}
 
 	void PageMain() {
@@ -88,7 +83,7 @@ void MainWindow::DrawMain() {
 	ImGui::SetNextWindowPos(this->WindowPos, ImGuiCond_Once, { 0.5, 0.5 });
 	ImGui::SetNextWindowSize(this->WindowSize);
 
-	ImGui::Begin("M-Loader", 0, this->mainWindowFlags);
+	ImGui::Begin("##Main", 0, this->mainWindowFlags);
 	{
 		// Tab bar
 		//ImGui::PushFont(FontsLoader::Instance().FontsMap[Fonts::Jost::Regular::TitleBar]);
@@ -109,7 +104,7 @@ void MainWindow::InitWindow() {
 	RECT ScreenRect{};
 	GetWindowRect(GetDesktopWindow(), &ScreenRect);
 	ImVec2 ScreenRes = ImVec2(float(ScreenRect.right), float(ScreenRect.bottom));
-	printf("%f | %f\n", ScreenRes.x, ScreenRes.y);
+
 	this->WindowPos = (ScreenRes - this->WindowSize) * 0.5f;
 	this->WindowSize = { 520, 630 };
 	this->Opened = true;
@@ -118,29 +113,6 @@ void MainWindow::InitWindow() {
 	this->AddPage({ PageIndex::PageMain, Pages::PageMain });
 
 	this->CurrentPage = PageIndex::PageLoading;
-
-	/*ImageLoader::Instance().AddImage(IDB_PNG1);
-	ImageLoader::Instance().AddImage(IDB_PNG2);
-	ImageLoader::Instance().AddImage(IDB_PNG3);
-
-	ImageLoader::Instance().AddImage(IDB_PNG4);
-	ImageLoader::Instance().AddImage(IDB_PNG5);
-	ImageLoader::Instance().AddImage(IDB_PNG6);
-
-	ImageLoader::Instance().AddImage(IDB_PNG7);
-	ImageLoader::Instance().AddImage(IDB_PNG8);
-	ImageLoader::Instance().AddImage(IDB_PNG9);
-	ImageLoader::Instance().AddImage(IDB_PNG10);
-	ImageLoader::Instance().AddImage(IDB_PNG11);
-	ImageLoader::Instance().AddImage(IDB_PNG12);
-
-	FontsLoader::Instance().AddFont(111, 12, 0, Fonts::Jost::Light::Header);
-	FontsLoader::Instance().AddFont(111, 20, 0, Fonts::Jost::Light::Header);
-	FontsLoader::Instance().AddFont(111, 32, 0, Fonts::Jost::Light::Header);
-
-	FontsLoader::Instance().AddFont(105, 12, 0, Fonts::Jost::Regular::TitleBar);
-	FontsLoader::Instance().AddFont(105, 20, 0, Fonts::Jost::Regular::MainText);
-	FontsLoader::Instance().AddFont(105, 32, 0, Fonts::Jost::Regular::Header);*/
 
 	auto& style = ImGui::GetStyle();
 	style.Colors[ImGuiCol_WindowBg] = ImColor(33, 33, 41, 255);
