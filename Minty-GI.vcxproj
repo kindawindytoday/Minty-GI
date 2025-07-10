@@ -1,0 +1,415 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <VCProjectVersion>17.0</VCProjectVersion>
+    <Keyword>Win32Proj</Keyword>
+    <ProjectGuid>{cfbd676b-748d-46cc-a658-bf65fc23aab4}</ProjectGuid>
+    <RootNamespace>MintyGI</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v143</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="Shared">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <IncludePath>$(SolutionDir)src\Frameworks\ImGui;$(IncludePath)</IncludePath>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;_DEBUG;MINTYGI_EXPORTS;_WINDOWS;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableUAC>false</EnableUAC>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>WIN32;NDEBUG;MINTYGI_EXPORTS;_WINDOWS;_USRDLL;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <PrecompiledHeader>Use</PrecompiledHeader>
+      <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableUAC>false</EnableUAC>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <SDLCheck>false</SDLCheck>
+      <PreprocessorDefinitions>NDEBUG;MINTYGI_EXPORTS;_WINDOWS;_USRDLL;_CRT_SECURE_NO_WARNINGS;_SILENCE_CXX17_CODECVT_HEADER_DEPRECATION_WARNING;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+      <LanguageStandard>stdcpp20</LanguageStandard>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <AdditionalOptions>/Zc:threadSafeInit- /MP12 %(AdditionalOptions)</AdditionalOptions>
+      <SupportJustMyCode>false</SupportJustMyCode>
+      <BufferSecurityCheck>false</BufferSecurityCheck>
+      <BasicRuntimeChecks>Default</BasicRuntimeChecks>
+      <Optimization>MaxSpeed</Optimization>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableUAC>false</EnableUAC>
+      <AdditionalDependencies>dbghelp.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <UACExecutionLevel>RequireAdministrator</UACExecutionLevel>
+      <AdditionalLibraryDirectories>$(SolutionDir)src\qengine\extern;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <WarningLevel>Level3</WarningLevel>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <SDLCheck>true</SDLCheck>
+      <PreprocessorDefinitions>NDEBUG;MINTYGI_EXPORTS;_WINDOWS;_USRDLL;_CRT_SECURE_NO_WARNINGS;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ConformanceMode>true</ConformanceMode>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <PrecompiledHeaderFile>pch.h</PrecompiledHeaderFile>
+      <LanguageStandard>stdcpp20</LanguageStandard>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+    </ClCompile>
+    <Link>
+      <SubSystem>Windows</SubSystem>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableUAC>false</EnableUAC>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClCompile Include="src\Bootstrap\dllmain.cpp" />
+    <ClCompile Include="src\Bootstrap\threads.cpp" />
+    <ClCompile Include="src\Bypass\Bypass.cpp" />
+    <ClCompile Include="src\Config\ConfigManager.cpp" />
+    <ClCompile Include="src\Engine\SDK.cpp" />
+    <ClCompile Include="src\Frameworks\ImGui\imgui.cpp" />
+    <ClCompile Include="src\Frameworks\ImGui\imgui_demo.cpp" />
+    <ClCompile Include="src\Frameworks\ImGui\imgui_draw.cpp" />
+    <ClCompile Include="src\Frameworks\ImGui\imgui_freetype.cpp" />
+    <ClCompile Include="src\Frameworks\ImGui\imgui_impl_dx11.cpp" />
+    <ClCompile Include="src\Frameworks\ImGui\imgui_impl_dx12.cpp" />
+    <ClCompile Include="src\Frameworks\ImGui\imgui_impl_win32.cpp" />
+    <ClCompile Include="src\Frameworks\ImGui\imgui_stdlib.cpp" />
+    <ClCompile Include="src\Frameworks\ImGui\imgui_tables.cpp" />
+    <ClCompile Include="src\Frameworks\ImGui\imgui_widgets.cpp" />
+    <ClCompile Include="src\Functions\Player\AOEAttack.cpp" />
+    <ClCompile Include="src\Functions\Player\Godmode.cpp" />
+    <ClCompile Include="src\Functions\Player\InfinityStamina.cpp" />
+    <ClCompile Include="src\Functions\Player\InfinityUltimate.cpp" />
+    <ClCompile Include="src\Functions\Player\MultiHit.cpp" />
+    <ClCompile Include="src\Functions\Player\Noclip.cpp" />
+    <ClCompile Include="src\Functions\Player\NoSkillCd.cpp" />
+    <ClCompile Include="src\Functions\Player\PlayerSpeed.cpp" />
+    <ClCompile Include="src\Functions\Player\WalkOnWater.cpp" />
+    <ClCompile Include="src\Functions\Settings\Settings.cpp" />
+    <ClCompile Include="src\Functions\Teleports\MapTP.cpp" />
+    <ClCompile Include="src\Functions\Teleports\OculiTP.cpp" />
+    <ClCompile Include="src\Functions\Teleports\QuestTP.cpp" />
+    <ClCompile Include="src\Functions\Teleports\TeleportBase.cpp" />
+    <ClCompile Include="src\Functions\Visuals\ConstChanger.cpp" />
+    <ClCompile Include="src\Functions\Visuals\FakeTime.cpp" />
+    <ClCompile Include="src\Functions\Visuals\FakeWeather.cpp" />
+    <ClCompile Include="src\Functions\Visuals\OpenTeamImmediately.cpp" />
+    <ClCompile Include="src\Functions\Visuals\ResinCrafter.cpp" />
+    <ClCompile Include="src\Functions\Visuals\FlycloakChanger.cpp" />
+    <ClCompile Include="src\Functions\Visuals\FovChanger.cpp" />
+    <ClCompile Include="src\Functions\Visuals\FpsUnlock.cpp" />
+    <ClCompile Include="src\Functions\Visuals\GraphicsChanger.cpp" />
+    <ClCompile Include="src\Functions\Visuals\HideDamage.cpp" />
+    <ClCompile Include="src\Functions\Visuals\InstantBowCharge.cpp" />
+    <ClCompile Include="src\Functions\Visuals\ObjectSpawner.cpp" />
+    <ClCompile Include="src\Functions\Visuals\SkipCutscene.cpp" />
+    <ClCompile Include="src\Functions\Visuals\Uncensor.cpp" />
+    <ClCompile Include="src\Functions\World\AutoActivateTP.cpp" />
+    <ClCompile Include="src\Functions\World\AutoDestroy.cpp" />
+    <ClCompile Include="src\Functions\World\AutoLoot.cpp" />
+    <ClCompile Include="src\Functions\World\AutoSeelie.cpp" />
+    <ClCompile Include="src\Functions\World\Autotalk.cpp" />
+    <ClCompile Include="src\Functions\Teleports\ChestTP.cpp" />
+    <ClCompile Include="src\Functions\World\DumbEnemies.cpp" />
+    <ClCompile Include="src\Functions\World\ESP.cpp" />
+    <ClCompile Include="src\Functions\World\ESPBase.cpp" />
+    <ClCompile Include="src\Functions\World\KillAura.cpp" />
+    <ClCompile Include="src\GUI\DirectX\DirectXHook.cpp" />
+    <ClCompile Include="src\GUI\Fonts\FontsLoader.cpp" />
+    <ClCompile Include="src\GUI\Images\ImageLoader.cpp" />
+    <ClCompile Include="src\GUI\Menu\Hotkey.cpp" />
+    <ClCompile Include="src\GUI\Menu\InitGUI.cpp" />
+    <ClCompile Include="src\GUI\Menu\MainGUI.cpp" />
+    <ClCompile Include="src\Utils\Hooking.cpp" />
+    <ClCompile Include="src\Utils\ResourceLoader.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="resource.h" />
+    <ClInclude Include="src\Bootstrap\threads.h" />
+    <ClInclude Include="src\Bypass\Bypass.h" />
+    <ClInclude Include="src\Config\ConfigManager.h" />
+    <ClInclude Include="src\Engine\SDK.h" />
+    <ClInclude Include="src\Engine\SDK_offsets.h" />
+    <ClInclude Include="src\Engine\SDK_types.h" />
+    <ClInclude Include="src\Engine\SDK_utils.h" />
+    <ClInclude Include="src\Frameworks\ImGui\freetype\config\ftconfig.h" />
+    <ClInclude Include="src\Frameworks\ImGui\freetype\config\ftheader.h" />
+    <ClInclude Include="src\Frameworks\ImGui\freetype\config\ftmodule.h" />
+    <ClInclude Include="src\Frameworks\ImGui\freetype\config\ftoption.h" />
+    <ClInclude Include="src\Frameworks\ImGui\freetype\config\ftstdlib.h" />
+    <ClInclude Include="src\Frameworks\ImGui\freetype\config\integer-types.h" />
+    <ClInclude Include="src\Frameworks\ImGui\freetype\config\mac-support.h" />
+    <ClInclude Include="src\Frameworks\ImGui\freetype\config\public-macros.h" />
+    <ClInclude Include="src\Frameworks\ImGui\freetype\freetype.h" />
+    <ClInclude Include="src\Frameworks\ImGui\freetype\ftadvanc.h" />
+    <ClInclude Include="src\Frameworks\ImGui\freetype\ftbbox.h" />
+    <ClInclude Include="src\Frameworks\ImGui\freetype\ftbdf.h" />
+    <ClInclude Include="src\Frameworks\ImGui\freetype\ftbitmap.h" />
+    <ClInclude Include="src\Frameworks\ImGui\freetype\ftbzip2.h" />
+    <ClInclude Include="src\Frameworks\ImGui\freetype\ftcache.h" />
+    <ClInclude Include="src\Frameworks\ImGui\freetype\ftchapters.h" />
+    <ClInclude Include="src\Frameworks\ImGui\freetype\ftcid.h" />
+    <ClInclude Include="src\Frameworks\ImGui\freetype\ftcolor.h" />
+    <ClInclude Include="src\Frameworks\ImGui\freetype\ftdriver.h" />
+    <ClInclude Include="src\Frameworks\ImGui\freetype\fterrdef.h" />
+    <ClInclude Include="src\Frameworks\ImGui\freetype\fterrors.h" />
+    <ClInclude Include="src\Frameworks\ImGui\freetype\ftfntfmt.h" />
+    <ClInclude Include="src\Frameworks\ImGui\freetype\ftgasp.h" />
+    <ClInclude Include="src\Frameworks\ImGui\freetype\ftglyph.h" />
+    <ClInclude Include="src\Frameworks\ImGui\freetype\ftgxval.h" />
+    <ClInclude Include="src\Frameworks\ImGui\freetype\ftgzip.h" />
+    <ClInclude Include="src\Frameworks\ImGui\freetype\ftimage.h" />
+    <ClInclude Include="src\Frameworks\ImGui\freetype\ftincrem.h" />
+    <ClInclude Include="src\Frameworks\ImGui\freetype\ftlcdfil.h" />
+    <ClInclude Include="src\Frameworks\ImGui\freetype\ftlist.h" />
+    <ClInclude Include="src\Frameworks\ImGui\freetype\ftlogging.h" />
+    <ClInclude Include="src\Frameworks\ImGui\freetype\ftlzw.h" />
+    <ClInclude Include="src\Frameworks\ImGui\freetype\ftmac.h" />
+    <ClInclude Include="src\Frameworks\ImGui\freetype\ftmm.h" />
+    <ClInclude Include="src\Frameworks\ImGui\freetype\ftmodapi.h" />
+    <ClInclude Include="src\Frameworks\ImGui\freetype\ftmoderr.h" />
+    <ClInclude Include="src\Frameworks\ImGui\freetype\ftotval.h" />
+    <ClInclude Include="src\Frameworks\ImGui\freetype\ftoutln.h" />
+    <ClInclude Include="src\Frameworks\ImGui\freetype\ftparams.h" />
+    <ClInclude Include="src\Frameworks\ImGui\freetype\ftpfr.h" />
+    <ClInclude Include="src\Frameworks\ImGui\freetype\ftrender.h" />
+    <ClInclude Include="src\Frameworks\ImGui\freetype\ftsizes.h" />
+    <ClInclude Include="src\Frameworks\ImGui\freetype\ftsnames.h" />
+    <ClInclude Include="src\Frameworks\ImGui\freetype\ftstroke.h" />
+    <ClInclude Include="src\Frameworks\ImGui\freetype\ftsynth.h" />
+    <ClInclude Include="src\Frameworks\ImGui\freetype\ftsystem.h" />
+    <ClInclude Include="src\Frameworks\ImGui\freetype\fttrigon.h" />
+    <ClInclude Include="src\Frameworks\ImGui\freetype\fttypes.h" />
+    <ClInclude Include="src\Frameworks\ImGui\freetype\ftwinfnt.h" />
+    <ClInclude Include="src\Frameworks\ImGui\freetype\internal\autohint.h" />
+    <ClInclude Include="src\Frameworks\ImGui\freetype\internal\cffotypes.h" />
+    <ClInclude Include="src\Frameworks\ImGui\freetype\internal\cfftypes.h" />
+    <ClInclude Include="src\Frameworks\ImGui\freetype\internal\compiler-macros.h" />
+    <ClInclude Include="src\Frameworks\ImGui\freetype\internal\ftcalc.h" />
+    <ClInclude Include="src\Frameworks\ImGui\freetype\internal\ftdebug.h" />
+    <ClInclude Include="src\Frameworks\ImGui\freetype\internal\ftdrv.h" />
+    <ClInclude Include="src\Frameworks\ImGui\freetype\internal\ftgloadr.h" />
+    <ClInclude Include="src\Frameworks\ImGui\freetype\internal\fthash.h" />
+    <ClInclude Include="src\Frameworks\ImGui\freetype\internal\ftmemory.h" />
+    <ClInclude Include="src\Frameworks\ImGui\freetype\internal\ftmmtypes.h" />
+    <ClInclude Include="src\Frameworks\ImGui\freetype\internal\ftobjs.h" />
+    <ClInclude Include="src\Frameworks\ImGui\freetype\internal\ftpsprop.h" />
+    <ClInclude Include="src\Frameworks\ImGui\freetype\internal\ftrfork.h" />
+    <ClInclude Include="src\Frameworks\ImGui\freetype\internal\ftserv.h" />
+    <ClInclude Include="src\Frameworks\ImGui\freetype\internal\ftstream.h" />
+    <ClInclude Include="src\Frameworks\ImGui\freetype\internal\fttrace.h" />
+    <ClInclude Include="src\Frameworks\ImGui\freetype\internal\ftvalid.h" />
+    <ClInclude Include="src\Frameworks\ImGui\freetype\internal\psaux.h" />
+    <ClInclude Include="src\Frameworks\ImGui\freetype\internal\pshints.h" />
+    <ClInclude Include="src\Frameworks\ImGui\freetype\internal\services\svbdf.h" />
+    <ClInclude Include="src\Frameworks\ImGui\freetype\internal\services\svcfftl.h" />
+    <ClInclude Include="src\Frameworks\ImGui\freetype\internal\services\svcid.h" />
+    <ClInclude Include="src\Frameworks\ImGui\freetype\internal\services\svfntfmt.h" />
+    <ClInclude Include="src\Frameworks\ImGui\freetype\internal\services\svgldict.h" />
+    <ClInclude Include="src\Frameworks\ImGui\freetype\internal\services\svgxval.h" />
+    <ClInclude Include="src\Frameworks\ImGui\freetype\internal\services\svkern.h" />
+    <ClInclude Include="src\Frameworks\ImGui\freetype\internal\services\svmetric.h" />
+    <ClInclude Include="src\Frameworks\ImGui\freetype\internal\services\svmm.h" />
+    <ClInclude Include="src\Frameworks\ImGui\freetype\internal\services\svotval.h" />
+    <ClInclude Include="src\Frameworks\ImGui\freetype\internal\services\svpfr.h" />
+    <ClInclude Include="src\Frameworks\ImGui\freetype\internal\services\svpostnm.h" />
+    <ClInclude Include="src\Frameworks\ImGui\freetype\internal\services\svprop.h" />
+    <ClInclude Include="src\Frameworks\ImGui\freetype\internal\services\svpscmap.h" />
+    <ClInclude Include="src\Frameworks\ImGui\freetype\internal\services\svpsinfo.h" />
+    <ClInclude Include="src\Frameworks\ImGui\freetype\internal\services\svsfnt.h" />
+    <ClInclude Include="src\Frameworks\ImGui\freetype\internal\services\svttcmap.h" />
+    <ClInclude Include="src\Frameworks\ImGui\freetype\internal\services\svtteng.h" />
+    <ClInclude Include="src\Frameworks\ImGui\freetype\internal\services\svttglyf.h" />
+    <ClInclude Include="src\Frameworks\ImGui\freetype\internal\services\svwinfnt.h" />
+    <ClInclude Include="src\Frameworks\ImGui\freetype\internal\sfnt.h" />
+    <ClInclude Include="src\Frameworks\ImGui\freetype\internal\svginterface.h" />
+    <ClInclude Include="src\Frameworks\ImGui\freetype\internal\t1types.h" />
+    <ClInclude Include="src\Frameworks\ImGui\freetype\internal\tttypes.h" />
+    <ClInclude Include="src\Frameworks\ImGui\freetype\internal\wofftypes.h" />
+    <ClInclude Include="src\Frameworks\ImGui\freetype\otsvg.h" />
+    <ClInclude Include="src\Frameworks\ImGui\freetype\t1tables.h" />
+    <ClInclude Include="src\Frameworks\ImGui\freetype\ttnameid.h" />
+    <ClInclude Include="src\Frameworks\ImGui\freetype\tttables.h" />
+    <ClInclude Include="src\Frameworks\ImGui\freetype\tttags.h" />
+    <ClInclude Include="src\Frameworks\ImGui\ft2build.h" />
+    <ClInclude Include="src\Frameworks\ImGui\imconfig.h" />
+    <ClInclude Include="src\Frameworks\ImGui\imgui.h" />
+    <ClInclude Include="src\Frameworks\ImGui\ImGuiInclude.h" />
+    <ClInclude Include="src\Frameworks\ImGui\ImGuiNotify.hpp" />
+    <ClInclude Include="src\Frameworks\ImGui\imgui_freetype.h" />
+    <ClInclude Include="src\Frameworks\ImGui\imgui_impl_dx11.h" />
+    <ClInclude Include="src\Frameworks\ImGui\imgui_impl_dx12.h" />
+    <ClInclude Include="src\Frameworks\ImGui\imgui_impl_win32.h" />
+    <ClInclude Include="src\Frameworks\ImGui\imgui_internal.h" />
+    <ClInclude Include="src\Frameworks\ImGui\imgui_stdlib.h" />
+    <ClInclude Include="src\Frameworks\ImGui\imstb_rectpack.h" />
+    <ClInclude Include="src\Frameworks\ImGui\imstb_textedit.h" />
+    <ClInclude Include="src\Frameworks\ImGui\imstb_truetype.h" />
+    <ClInclude Include="src\Frameworks\Json\json.hpp" />
+    <ClInclude Include="src\Functions\Feature.h" />
+    <ClInclude Include="src\Functions\FeatureManager.h" />
+    <ClInclude Include="src\Functions\Player\AOEAttack.h" />
+    <ClInclude Include="src\Functions\Player\Godmode.h" />
+    <ClInclude Include="src\Functions\Player\InfinityStamina.h" />
+    <ClInclude Include="src\Functions\Player\InfinityUltimate.h" />
+    <ClInclude Include="src\Functions\Player\MultiHit.h" />
+    <ClInclude Include="src\Functions\Player\Noclip.h" />
+    <ClInclude Include="src\Functions\Player\NoSkillCd.h" />
+    <ClInclude Include="src\Functions\Player\PlayerSpeed.h" />
+    <ClInclude Include="src\Functions\Player\WalkOnWater.h" />
+    <ClInclude Include="src\Functions\Settings\Settings.h" />
+    <ClInclude Include="src\Functions\Teleports\MapTP.h" />
+    <ClInclude Include="src\Functions\Teleports\OculiTP.h" />
+    <ClInclude Include="src\Functions\Teleports\QuestTP.h" />
+    <ClInclude Include="src\Functions\Teleports\TeleportBase.h" />
+    <ClInclude Include="src\Functions\Visuals\ConstChanger.h" />
+    <ClInclude Include="src\Functions\Visuals\FakeTime.h" />
+    <ClInclude Include="src\Functions\Visuals\FakeWeather.h" />
+    <ClInclude Include="src\Functions\Visuals\OpenTeamImmediately.h" />
+    <ClInclude Include="src\Functions\Visuals\ResinCrafter.h" />
+    <ClInclude Include="src\Functions\Visuals\FlycloakChanger.h" />
+    <ClInclude Include="src\Functions\Visuals\FovChanger.h" />
+    <ClInclude Include="src\Functions\Visuals\FpsUnlock.h" />
+    <ClInclude Include="src\Functions\Visuals\GraphicsChanger.h" />
+    <ClInclude Include="src\Functions\Visuals\HideDamage.h" />
+    <ClInclude Include="src\Functions\Visuals\InstantBowCharge.h" />
+    <ClInclude Include="src\Functions\Visuals\ObjectSpawner.h" />
+    <ClInclude Include="src\Functions\Visuals\SkipCutscene.h" />
+    <ClInclude Include="src\Functions\Visuals\Uncensor.h" />
+    <ClInclude Include="src\Functions\World\AutoActivateTP.h" />
+    <ClInclude Include="src\Functions\World\AutoDestroy.h" />
+    <ClInclude Include="src\Functions\World\AutoLoot.h" />
+    <ClInclude Include="src\Functions\World\AutoSeelie.h" />
+    <ClInclude Include="src\Functions\World\Autotalk.h" />
+    <ClInclude Include="src\Functions\Teleports\ChestTP.h" />
+    <ClInclude Include="src\Functions\World\DumbEnemies.h" />
+    <ClInclude Include="src\Functions\World\ESP.h" />
+    <ClInclude Include="src\Functions\World\ESPBase.h" />
+    <ClInclude Include="src\Functions\World\KillAura.h" />
+    <ClInclude Include="src\GUI\DirectX\DirectXHook.h" />
+    <ClInclude Include="src\GUI\Fonts\FontsLoader.h" />
+    <ClInclude Include="src\GUI\Images\ImageLoader.h" />
+    <ClInclude Include="src\GUI\Menu\Hotkey.h" />
+    <ClInclude Include="src\GUI\Menu\InitGUI.h" />
+    <ClInclude Include="src\GUI\Menu\MainGUI.h" />
+    <ClInclude Include="src\Utils\detours.h" />
+    <ClInclude Include="src\Utils\Hooking.h" />
+    <ClInclude Include="src\Utils\ProjectGlobals.h" />
+    <ClInclude Include="src\Utils\ResourceLoader.h" />
+    <ClInclude Include="src\Utils\Singleton.h" />
+    <ClInclude Include="src\Utils\stb_image.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Library Include="src\Frameworks\ImGui\freetype.lib" />
+    <Library Include="src\Utils\detours.lib" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="Minty-GI.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <Font Include="src\Resources\Fonts\Kodchasan-Bold.ttf" />
+    <Font Include="src\Resources\Fonts\Kodchasan-Regular.ttf" />
+    <Font Include="src\Resources\Fonts\Montserrat-SemiBold.ttf" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="src\Resources\Images\Cursor.png" />
+    <Image Include="src\Resources\Images\MenuLogo.png" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
